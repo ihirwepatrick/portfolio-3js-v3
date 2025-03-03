@@ -1,6 +1,9 @@
-import { useState } from 'react';
+"use client"
 
-import { navLinks } from '../constants/index.js';
+import { useState } from "react"
+import { Download } from "lucide-react"
+
+import { navLinks } from "../constants/index.js"
 
 const NavItems = ({ onClick = () => {} }) => (
   <ul className="nav-ul">
@@ -12,13 +15,13 @@ const NavItems = ({ onClick = () => {} }) => (
       </li>
     ))}
   </ul>
-);
+)
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => setIsOpen(!isOpen)
+  const closeMenu = () => setIsOpen(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90">
@@ -31,23 +34,44 @@ const Navbar = () => {
           <button
             onClick={toggleMenu}
             className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
-            aria-label="Toggle menu">
-            <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
+            aria-label="Toggle menu"
+          >
+            <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className="w-6 h-6" />
           </button>
 
-          <nav className="sm:flex hidden">
+          <nav className="sm:flex hidden items-center">
             <NavItems />
+            <a
+              href="/assets/cv.pdf"
+              download="Ihirwe_CV.pdf"
+              className="ml-6 flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-2 rounded-md transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download CV</span>
+            </a>
           </nav>
         </div>
       </div>
 
-      <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
+      <div className={`nav-sidebar ${isOpen ? "max-h-screen" : "max-h-0"}`}>
         <nav className="p-5">
           <NavItems onClick={closeMenu} />
+          <div className="mt-4 flex justify-center">
+            <a
+              href="/assets/cv.pdf"
+              download="Ihirwe_CV.pdf"
+              className="flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-2 rounded-md transition-colors w-full justify-center"
+              onClick={closeMenu}
+            >
+              <Download className="w-4 h-4" />
+              <span>Download CV</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
+
