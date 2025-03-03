@@ -42,7 +42,7 @@ const Navbar = () => {
           <nav className="sm:flex hidden items-center">
             <NavItems />
             <a
-              href="/assets/cv.pdf"
+              href="/assets/cv/ihirwe.pdf"
               download="Ihirwe_CV.pdf"
               className="ml-6 flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-2 rounded-md transition-colors"
             >
@@ -58,8 +58,8 @@ const Navbar = () => {
           <NavItems onClick={closeMenu} />
           <div className="mt-4 flex justify-center">
             <a
-              href="/assets/cv.pdf"
-              download="Ihirwe_CV.pdf"
+              href="/assets/cv/ihirwe.pdf"
+              download="/assets/cv/ihirwe.pdf"
               className="flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-2 rounded-md transition-colors w-full justify-center"
               onClick={closeMenu}
             >
